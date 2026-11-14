@@ -229,3 +229,18 @@ flake8 ./src --statistics --show-source --count
 ## Author
 
 - [@trekhleb](https://trekhleb.dev)
+
+## Team Collaboration
+
+This repository is maintained by a four-member student team
+for the Software Configuration Management assignment.
+
+The team is using Git and GitHub to practice:
+
+- Repository management and forking
+- Branching and commits
+- Pull requests and code reviews
+- Merge conflict resolution
+- Python testing
+
+All contributions will be reviewed before merging into main.
