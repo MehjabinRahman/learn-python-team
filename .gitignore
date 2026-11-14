@@ -1,0 +1,14 @@
+.idea
+.pytest_cache
+venv
+**/*.pyc
+env
+__pycache__
+.vscode
+.venv/
+.idea/
+.vscode/
+__pycache__/
+.pytest_cache/
+*.pyc
+/learn-python/
