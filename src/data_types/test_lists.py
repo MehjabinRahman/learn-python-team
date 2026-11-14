@@ -336,3 +336,11 @@ def test_nested_list_comprehensions():
         (3, 7, 11),
         (4, 8, 12),
     ]
+
+
+def test_sort_numbers():
+    """Test sorting numbers in ascending order."""
+    numbers = [8, 3, 6, 1]
+    sorted_numbers = sorted(numbers)
+
+    assert sorted_numbers == [1, 3, 6, 8]
