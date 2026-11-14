@@ -344,3 +344,10 @@ def test_sort_numbers():
     sorted_numbers = sorted(numbers)
 
     assert sorted_numbers == [1, 3, 6, 8]
+
+def test_filter_even_numbers():
+    """Test filtering even numbers using list comprehension."""
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+    even_numbers = [number for number in numbers if number % 2 == 0]
+
+    assert even_numbers == [2, 4, 6, 8]
