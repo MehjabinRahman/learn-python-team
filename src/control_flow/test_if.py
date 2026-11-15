@@ -73,3 +73,32 @@ def test_if_elif():
         number = 51
     assert number == 12
 
+
+def test_if_elif_nested():
+
+    number = 58
+    minimum 
+
+    if number >0:
+        minimum =0
+        if number >10:
+            minimum = 10
+            if number >20:
+                minimum = 20
+                if number > 30:
+                    minimum = 30
+                    if number > 40:
+                        minimum = 40
+                        if number > 50:
+                            minimum = 50
+                            if number > 60:
+                                minimum = 60
+                                if number > 70:
+                                    minimum = 70
+                                    if number > 80:
+                                        minimum = 80
+    
+    
+    
+    assert minimum == 50
+
