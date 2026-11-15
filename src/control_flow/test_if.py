@@ -26,3 +26,50 @@ def test_if_statement():
         conclusion = 'Number bigger than or equal to one'
 
     assert conclusion == 'Number bigger than or equal to one'
+
+def test_if_nested():
+    """IF nested statement"""
+
+    number = -1000
+    conclusion = ''
+
+    if number < 0:
+        conclusion = 'Number is less than zero'
+        if number < -100:
+         conclusion = 'Number is also less than -100'
+
+    elif number == 0:
+        conclusion = 'Number equals to zero'
+    elif number < 1:
+        if number <0.5:
+            conclusion = 'Number is smaller than 0.5 too'
+        else : 
+            conclusion ='Number is bigger than 0.5 but smaller than one'
+    else:
+        conclusion = 'Number bigger than or equal to one'
+        if number >100 : 
+            conclusion ='Number is bigger than 100'
+        else:
+            conclusion = 'Number is smaller than 100 '
+
+    assert conclusion == 'Number is also less than -100'
+
+def test_if_elif():
+
+    expected = 'i like apples'
+    number
+
+    if expected == 'i like apples':
+        number = 12
+    elif expected =='i like dogs':
+        number = 74
+    elif expected =='i like cats':
+        number = 86
+    elif expected =='i like oranges':
+        number = 53
+    elif expected =='i like juice':
+        number = 21
+    elif expected =='i like planes':
+        number = 51
+    assert number == 12
+
