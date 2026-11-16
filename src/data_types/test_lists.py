@@ -84,12 +84,16 @@ def test_list_methods():
     # Add an item to the end of the list.
     # Equivalent to a[len(a):] = [x].
     fruits.append('grape')
+
     fruits.append('coco')
+    fruits.append('mango')
     assert fruits == ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'grape']
+
 
     # list.remove(x)
     # Remove the first item from the list whose value is equal to x.
     # It raises a ValueError if there is no such item.
+    fruits.remove('mango')
     fruits.remove('grape')
     assert fruits == ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
 
