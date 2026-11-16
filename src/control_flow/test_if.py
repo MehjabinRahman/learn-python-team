@@ -13,15 +13,15 @@ in other languages.
 def test_if_statement():
     """IF statement"""
 
-    number = 15
+    number = 35
     conclusion = ''
 
-    if number < 0:
-        conclusion = 'Number is less than zero'
+    if number < -100:
+        conclusion = 'Number is less than -100'
     elif number == 0:
         conclusion = 'Number equals to zero'
     elif number < 1:
-        conclusion = 'Number is greater than zero but less than one'
+        conclusion = 'Number is between 0 and 1'
     else:
         conclusion = 'Number bigger than or equal to one'
 
@@ -57,7 +57,7 @@ def test_if_nested():
 def test_if_elif():
 
     expected = 'i like apples'
-    number
+    
 
     if expected == 'i like apples':
         number = 12
@@ -77,7 +77,7 @@ def test_if_elif():
 def test_if_elif_nested():
 
     number = 58
-    minimum 
+    
 
     if number >0:
         minimum =0
@@ -102,3 +102,7 @@ def test_if_elif_nested():
     
     assert minimum == 50
 
+test_if_elif()
+test_if_elif_nested()
+test_if_nested()
+test_if_statement()
