@@ -103,6 +103,9 @@ def test_if_elif_nested():
     assert minimum == 50
 
 test_if_elif()
+print('test 1 passed')
 test_if_elif_nested()
+print('test 2 passed')
 test_if_nested()
+print('test 3 passed')
 test_if_statement()
