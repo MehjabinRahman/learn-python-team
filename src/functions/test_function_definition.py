@@ -8,6 +8,8 @@ parenthesized list of formal parameters. The statements that form the body of th
 the next line, and must be indented.
 """
 
+import pytest
+
 
 def fibonacci_function_example(number_limit):
     """Generate a Fibonacci series up to number_limit.
@@ -121,3 +123,87 @@ def test_function_definition():
     greet_with_closure = compose_greet_func_with_closure('John')
 
     assert greet_with_closure() == 'Hello there, John!'
+
+
+def test_function_default_and_keyword_parameters():
+    """Default and keyword parameters
+
+    A parameter can have a default value. If the caller does not pass that argument, the default
+    value is used. Arguments can also be passed by name (keyword arguments), so their order does
+    not matter.
+    """
+
+    def make_greeting(name, greeting='Hello', punctuation='!'):
+        return greeting + ', ' + name + punctuation
+
+    # Only the required parameter is given, so both defaults are used.
+    assert make_greeting('Omar') == 'Hello, Omar!'
+
+    # A positional argument replaces the first default.
+    assert make_greeting('Omar', 'Hi') == 'Hi, Omar!'
+
+    # Keyword arguments can be given in any order and can skip a default in the middle.
+    assert make_greeting('Omar', punctuation='?') == 'Hello, Omar?'
+    assert make_greeting(punctuation='.', name='Omar', greeting='Bye') == 'Bye, Omar.'
+
+
+def test_function_return_values():
+    """Return values
+
+    A function can send back more than one value by returning them separated by commas. Python
+    packs them into a tuple, and the caller can unpack the tuple into separate variables. A
+    function that ends without a return statement (or uses return with no value) returns None.
+    """
+
+    def get_min_and_max(numbers):
+        return min(numbers), max(numbers)
+
+    # The two returned values come back as one tuple.
+    result = get_min_and_max([4, 9, 1, 7])
+    assert result == (1, 9)
+    assert isinstance(result, tuple)
+
+    # The tuple can be unpacked straight into two variables.
+    smallest, largest = get_min_and_max([4, 9, 1, 7])
+    assert smallest == 1
+    assert largest == 9
+
+    # No return statement means the function returns None.
+    def add_to_list(items, value):
+        items.append(value)
+
+    my_list = [1, 2]
+    assert add_to_list(my_list, 3) is None
+    assert my_list == [1, 2, 3]
+
+
+def test_function_input_validation():
+    """Simple input validation
+
+    A function can check its arguments before using them. If a value does not make sense, the
+    function can stop and raise an exception such as ValueError instead of returning a wrong
+    result. pytest.raises lets the test check that the error really happens.
+    """
+
+    def calculate_average(numbers):
+        if not numbers:
+            raise ValueError('numbers must not be empty')
+        return sum(numbers) / len(numbers)
+
+    # Valid input returns the normal result.
+    assert calculate_average([2, 4, 6]) == 4
+
+    # An empty list is rejected with a ValueError.
+    with pytest.raises(ValueError):
+        calculate_average([])
+
+    def set_age(age):
+        if age < 0:
+            raise ValueError('age cannot be negative')
+        return age
+
+    assert set_age(20) == 20
+
+    # The error message can also be checked.
+    with pytest.raises(ValueError, match='age cannot be negative'):
+        set_age(-5)
