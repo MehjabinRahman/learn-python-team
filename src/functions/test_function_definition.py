@@ -143,3 +143,33 @@ def test_function_default_and_keyword_parameters():
     # Keyword arguments can be given in any order and can skip a default in the middle.
     assert make_greeting('Omar', punctuation='?') == 'Hello, Omar?'
     assert make_greeting(punctuation='.', name='Omar', greeting='Bye') == 'Bye, Omar.'
+
+
+def test_function_return_values():
+    """Return values
+
+    A function can send back more than one value by returning them separated by commas. Python
+    packs them into a tuple, and the caller can unpack the tuple into separate variables. A
+    function that ends without a return statement (or uses return with no value) returns None.
+    """
+
+    def get_min_and_max(numbers):
+        return min(numbers), max(numbers)
+
+    # The two returned values come back as one tuple.
+    result = get_min_and_max([4, 9, 1, 7])
+    assert result == (1, 9)
+    assert isinstance(result, tuple)
+
+    # The tuple can be unpacked straight into two variables.
+    smallest, largest = get_min_and_max([4, 9, 1, 7])
+    assert smallest == 1
+    assert largest == 9
+
+    # No return statement means the function returns None.
+    def add_to_list(items, value):
+        items.append(value)
+
+    my_list = [1, 2]
+    assert add_to_list(my_list, 3) is None
+    assert my_list == [1, 2, 3]
