@@ -77,3 +77,45 @@ def test_dictionary():
     assert dictionary_for_string_keys['sape'] == 4139
     assert dictionary_for_string_keys['guido'] == 4127
     assert dictionary_for_string_keys['jack'] == 4098
+
+def test_dictionary_update_and_retrieve():
+    """Demonstrate adding, updating, and retrieving dictionary entries."""
+
+    student = {
+        'name': 'John',
+        'age': 20,
+    }
+
+    # Add a new entry
+    student['course'] = 'Python'
+    assert student['course'] == 'Python'
+
+    # Update an existing entry
+    student['age'] = 21
+    assert student['age'] == 21
+
+    # Retrieve an entry using get()
+    assert student.get('name') == 'John'
+    assert student.get('grade', 'Not available') == 'Not available'
+
+
+def test_dictionary_remove_entries():
+    """Demonstrate removing entries from a dictionary."""
+
+    student_grades = {
+        'Math': 85,
+        'Python': 95,
+        'English': 78,
+    }
+
+    # Remove an entry using pop()
+    removed_grade = student_grades.pop('English')
+    assert removed_grade == 78
+    assert 'English' not in student_grades
+
+    # Remove an entry using del
+    del student_grades['Math']
+    assert 'Math' not in student_grades
+
+    # Check the remaining dictionary
+    assert student_grades == {'Python': 95}
