@@ -121,3 +121,25 @@ def test_function_definition():
     greet_with_closure = compose_greet_func_with_closure('John')
 
     assert greet_with_closure() == 'Hello there, John!'
+
+
+def test_function_default_and_keyword_parameters():
+    """Default and keyword parameters
+
+    A parameter can have a default value. If the caller does not pass that argument, the default
+    value is used. Arguments can also be passed by name (keyword arguments), so their order does
+    not matter.
+    """
+
+    def make_greeting(name, greeting='Hello', punctuation='!'):
+        return greeting + ', ' + name + punctuation
+
+    # Only the required parameter is given, so both defaults are used.
+    assert make_greeting('Omar') == 'Hello, Omar!'
+
+    # A positional argument replaces the first default.
+    assert make_greeting('Omar', 'Hi') == 'Hi, Omar!'
+
+    # Keyword arguments can be given in any order and can skip a default in the middle.
+    assert make_greeting('Omar', punctuation='?') == 'Hello, Omar?'
+    assert make_greeting(punctuation='.', name='Omar', greeting='Bye') == 'Bye, Omar.'
