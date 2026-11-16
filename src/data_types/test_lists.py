@@ -166,8 +166,13 @@ def test_list_methods():
 
     # list.clear()
     # Remove all items from the list. Equivalent to del a[:].
+   
     fruits.clear()
-    assert fruits == []
+    assert fruits == [], "List must be empty before adding mango"
+
+    fruits.append('mango')
+    assert fruits == ['mango']
+
 
 
 def test_del_statement():
