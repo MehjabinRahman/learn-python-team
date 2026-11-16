@@ -84,6 +84,7 @@ def test_list_methods():
     # Add an item to the end of the list.
     # Equivalent to a[len(a):] = [x].
     fruits.append('grape')
+    fruits.append('coco')
     assert fruits == ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'grape']
 
     # list.remove(x)
