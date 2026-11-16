@@ -8,6 +8,8 @@ parenthesized list of formal parameters. The statements that form the body of th
 the next line, and must be indented.
 """
 
+import pytest
+
 
 def fibonacci_function_example(number_limit):
     """Generate a Fibonacci series up to number_limit.
@@ -173,3 +175,35 @@ def test_function_return_values():
     my_list = [1, 2]
     assert add_to_list(my_list, 3) is None
     assert my_list == [1, 2, 3]
+
+
+def test_function_input_validation():
+    """Simple input validation
+
+    A function can check its arguments before using them. If a value does not make sense, the
+    function can stop and raise an exception such as ValueError instead of returning a wrong
+    result. pytest.raises lets the test check that the error really happens.
+    """
+
+    def calculate_average(numbers):
+        if not numbers:
+            raise ValueError('numbers must not be empty')
+        return sum(numbers) / len(numbers)
+
+    # Valid input returns the normal result.
+    assert calculate_average([2, 4, 6]) == 4
+
+    # An empty list is rejected with a ValueError.
+    with pytest.raises(ValueError):
+        calculate_average([])
+
+    def set_age(age):
+        if age < 0:
+            raise ValueError('age cannot be negative')
+        return age
+
+    assert set_age(20) == 20
+
+    # The error message can also be checked.
+    with pytest.raises(ValueError, match='age cannot be negative'):
+        set_age(-5)
