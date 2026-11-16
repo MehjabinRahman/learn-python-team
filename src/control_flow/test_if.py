@@ -24,9 +24,9 @@ def test_if_statement():
     elif number < 1:
         conclusion = 'Number is greater than zero but less than one'
     else:
-        conclusion = 'Number bigger than or equal to one because it is bigger than 1'
+        conclusion = 'Number is one or more'
 
-    assert conclusion == 'Number bigger than or equal to one because it is bigger than 1'
+    assert conclusion == 'Number is one or more'
 
 def test_if_elif_nested():
     """IF nested statement"""
